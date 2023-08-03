@@ -1,7 +1,7 @@
 <script>
-    export default {
-        name: 'Header'
-    }
+export default {
+    name: 'Header'
+}
 </script>
 
 <template>
@@ -17,7 +17,7 @@
                 </form>
             </div>
         </div>
-    </div> 
+    </div>
 </template>
 
 <style scoped>
@@ -35,6 +35,13 @@
     flex-direction: row;
     justify-content: space-between;
     width: 80%;
+    gap: 14px;
+}
+
+.title {
+    font-size: 30px;
+    color: #333;
+    margin-top: 12px;
 }
 
 .input-search {
@@ -51,7 +58,8 @@
 }
 
 
-.form-content, .input-search {
+.form-content,
+.input-search {
     align-items: center;
     display: flex;
 }
@@ -75,5 +83,4 @@
     justify-content: center;
     margin: 5px 0;
 }
-
 </style>
