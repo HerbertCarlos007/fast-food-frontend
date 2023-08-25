@@ -1,7 +1,6 @@
 <script>
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
-import { mapActions, mapGetters, mapState } from 'vuex'
 
 export default {
     name: 'ShoppingCart',
@@ -15,6 +14,10 @@ export default {
             if (item.quantity > 1) {
                 item.quantity--
             }
+        },
+        
+        removeProduct(item) {
+            this.$store.commit('removeProduct', item.id)
         }
 
     }
@@ -46,7 +49,7 @@ export default {
                         </div>
 
                         <div class="right-side">
-                            <span class="button-delete">
+                            <span class="button-delete" @click="removeProduct(item)">
                                 <span class="fa-solid fa-trash-can"></span>
                             </span>
                         </div>
