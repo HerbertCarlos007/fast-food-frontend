@@ -1,11 +1,22 @@
 <script>
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
+import { mapActions, mapGetters, mapState } from 'vuex'
 
 export default {
     name: 'ShoppingCart',
 
-    components: {
+    methods: {
+        increaseQuantity(item) {
+            item.quantity++
+        },
+
+        decrementQuantity(item) {
+            if (item.quantity > 1) {
+                item.quantity--
+            }
+        }
+
     }
 }
 </script>
@@ -17,105 +28,21 @@ export default {
         </div>
 
         <div class="cart-list">
-            <div class="cart-card">
+            <div class="cart-card" v-for="item in $store.state.cart" :key="item.id">
                 <div class="img-card">
-                    <img src="https://i.imgur.com/Vng6VzV.png" alt="">
+                    <img :src='item.image'>
                 </div>
 
                 <div class="content-card">
                     <div class="info-product">
-                        <h3 class="title-product">Hamburguer</h3>
-                        <span class="category-product">Sanduiches</span>
+                        <h3 class="title-product">{{ item.name }}</h3>
+                        <span class="category-product">{{ item.category }}</span>
                     </div>
-
                     <div class="actions-container">
                         <div class="left-side">
-                            <button class="button-quantity">-</button>
-                            <span class="text-quantity">1</span>
-                            <button class="button-quantity">+</button>
-                        </div>
-
-                        <div class="right-side">
-                            <span class="button-delete">
-                                <span class="fa-solid fa-trash-can"></span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="cart-card">
-                <div class="img-card">
-                    <img src="https://i.imgur.com/Vng6VzV.png" alt="">
-                </div>
-
-                <div class="content-card">
-                    <div class="info-product">
-                        <h3 class="title-product">Hamburguer</h3>
-                        <span class="category-product">Sanduiches</span>
-                    </div>
-
-                    <div class="actions-container">
-                        <div class="left-side">
-                            <button class="button-quantity">-</button>
-                            <span class="text-quantity">1</span>
-                            <button class="button-quantity">+</button>
-                        </div>
-
-                        <div class="right-side">
-                            <span class="button-delete">
-                                <span class="fa-solid fa-trash-can"></span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="cart-card">
-                <div class="img-card">
-                    <img src="https://i.imgur.com/Vng6VzV.png" alt="">
-                </div>
-
-                <div class="content-card">
-                    <div class="info-product">
-                        <h3 class="title-product">Hamburguer</h3>
-                        <span class="category-product">Sanduiches</span>
-                    </div>
-
-                    <div class="actions-container">
-                        <div class="left-side">
-                            <button class="button-quantity">-</button>
-                            <span class="text-quantity">1</span>
-                            <button class="button-quantity">+</button>
-                        </div>
-
-                        <div class="right-side">
-                            <span class="button-delete">
-                                <span class="fa-solid fa-trash-can"></span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="cart-card">
-                <div class="img-card">
-                    <img src="https://i.imgur.com/Vng6VzV.png" alt="">
-                </div>
-
-                <div class="content-card">
-                    <div class="info-product">
-                        <h3 class="title-product">Hamburguer</h3>
-                        <span class="category-product">Sanduiches</span>
-                    </div>
-
-                    <div class="actions-container">
-                        <div class="left-side">
-                            <button class="button-quantity">-</button>
-                            <span class="text-quantity">1</span>
-                            <button class="button-quantity">+</button>
+                            <button class="button-quantity" @click="decrementQuantity(item)">-</button>
+                            <span class="text-quantity">{{ item.quantity }}</span>
+                            <button class="button-quantity" @click="increaseQuantity(item)">+</button>
                         </div>
 
                         <div class="right-side">
@@ -127,14 +54,14 @@ export default {
                 </div>
             </div>
         </div>
-        
+
         <div class="purchase-summary">
             <div class="total-value">
                 <div class="info-value">
                     <p>Total</p>
                     <span>R$ 32,00</span>
                 </div>
-                
+
                 <button>Remover todos</button>
             </div>
         </div>
@@ -334,5 +261,4 @@ export default {
     width: 100%;
     cursor: pointer;
 }
-
 </style>

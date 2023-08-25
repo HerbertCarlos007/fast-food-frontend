@@ -10,6 +10,12 @@ export default {
         }
     },
     
+    methods: {
+        addProduct(product) {
+            this.$store.commit('addProduct', product)
+        }
+    },
+    
 }
 </script>
 
@@ -22,8 +28,8 @@ export default {
             <div class="info-content">
                 <h3 class="name-product">{{product.name}}</h3>
                 <span class="category">{{ product.category }}</span>
-                <p class="price">{{ product.price }}</p>
-                <button class="button-add">Adicionar</button>
+                <p class="price">R$ {{ product.price }}</p>
+                <button class="button-add" @click="addProduct(product)">Adicionar</button>
             </div>
         </div>
     </div>
