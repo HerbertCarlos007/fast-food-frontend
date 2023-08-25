@@ -17,7 +17,7 @@ export default {
     <div class="container">
         <div v-for="product in products" :key="product.id" class="card">
             <div class="img-content">
-                <img src="https://i.imgur.com/Vng6VzV.png" class="img-card">
+                <img :src='product.image' class="img-card">
             </div>
             <div class="info-content">
                 <h3 class="name-product">{{product.name}}</h3>
@@ -36,7 +36,7 @@ export default {
 }
 
 .card {
-    width: 30%;
+    width: 31.5%;
     background: #fff;
     border: 2px solid #e0e0e0;
     border-radius: 5px;
