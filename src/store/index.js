@@ -18,6 +18,12 @@ export default createStore({
         removeProduct(state, id) {
             const product = state.cart.findIndex(item => item.id === id)
             state.cart.splice(product, 1)
+        },
+    },
+    
+    getters: {
+        total(state) {
+            return state.cart.reduce((acc, item) => acc += item.price * item.quantity, 0)
         }
     }
 })

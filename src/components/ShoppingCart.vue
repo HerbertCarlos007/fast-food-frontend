@@ -15,12 +15,11 @@ export default {
                 item.quantity--
             }
         },
-        
+
         removeProduct(item) {
             this.$store.commit('removeProduct', item.id)
         }
-
-    }
+    },
 }
 </script>
 
@@ -30,7 +29,7 @@ export default {
             <h3 class="title-cart">Carrinho de compras</h3>
         </div>
 
-        <div class="cart-list">
+        <div class="cart-list" v-if="this.$store.state.cart.length > 0">
             <div class="cart-card" v-for="item in $store.state.cart" :key="item.id">
                 <div class="img-card">
                     <img :src='item.image'>
@@ -58,11 +57,15 @@ export default {
             </div>
         </div>
 
+        <div v-else class="emptyCart">
+            vazio
+        </div>
+
         <div class="purchase-summary">
             <div class="total-value">
                 <div class="info-value">
                     <p>Total</p>
-                    <span>R$ 32,00</span>
+                    <span>R$ {{ $store.getters.total }}</span>
                 </div>
 
                 <button>Remover todos</button>
@@ -79,6 +82,10 @@ export default {
     display: flex;
     border-radius: 5px;
     flex-direction: column;
+}
+
+.emptyCart {
+    height: 100%;
 }
 
 .title-content {
