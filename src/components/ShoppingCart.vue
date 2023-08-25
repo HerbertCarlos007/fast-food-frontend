@@ -255,6 +255,7 @@ export default {
     justify-content: center;
     margin: 0 5px;
     width: 24px;
+    cursor: pointer;
 }
 
 .text-quantity {
@@ -270,6 +271,7 @@ export default {
     font-size: 10px;
     font-weight: 500;
     line-height: 15px;
+    cursor: pointer;
 }
 
 .purchase-summary {
@@ -330,6 +332,7 @@ export default {
     margin-bottom: 10px;
     padding: 6px;
     width: 100%;
+    cursor: pointer;
 }
 
 </style>

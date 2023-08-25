@@ -20,7 +20,7 @@ export default {
     <div class="container">
         <div class="contents">
             <ListProducts />
-           <ShoppingCart/>
+            <ShoppingCart />
         </div>
     </div>
 </template>

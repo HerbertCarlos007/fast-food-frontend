@@ -42,6 +42,7 @@ export default {
     font-size: 30px;
     color: #333;
     margin-top: 12px;
+    margin-left: 30px;
 }
 
 .input-search {
@@ -82,5 +83,7 @@ export default {
     font-weight: 500;
     justify-content: center;
     margin: 5px 0;
+    cursor: pointer;
+    
 }
 </style>

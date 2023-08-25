@@ -1,79 +1,28 @@
 <script>
+import Products from '../Products'
+
 export default {
-    name: 'ListProducts'
+    name: 'ListProducts',
+    
+    data() {
+        return {
+            products: Products
+        }
+    },
+    
 }
 </script>
 
 <template>
     <div class="container">
-        <div class="card">
+        <div v-for="product in products" :key="product.id" class="card">
             <div class="img-content">
                 <img src="https://i.imgur.com/Vng6VzV.png" class="img-card">
             </div>
             <div class="info-content">
-                <h3 class="name-product">Hamburger</h3>
-                <span class="category">Sanduiches</span>
-                <p class="price">R$ 14,00</p>
-                <button class="button-add">Adicionar</button>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="img-content">
-                <img src="https://i.imgur.com/Vng6VzV.png" class="img-card">
-            </div>
-            <div class="info-content">
-                <h3 class="name-product">Hamburger</h3>
-                <span class="category">Sanduiches</span>
-                <p class="price">R$ 14,00</p>
-                <button class="button-add">Adicionar</button>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="img-content">
-                <img src="https://i.imgur.com/Vng6VzV.png" class="img-card">
-            </div>
-            <div class="info-content">
-                <h3 class="name-product">Hamburger</h3>
-                <span class="category">Sanduiches</span>
-                <p class="price">R$ 14,00</p>
-                <button class="button-add">Adicionar</button>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="img-content">
-                <img src="https://i.imgur.com/Vng6VzV.png" class="img-card">
-            </div>
-            <div class="info-content">
-                <h3 class="name-product">Hamburger</h3>
-                <span class="category">Sanduiches</span>
-                <p class="price">R$ 14,00</p>
-                <button class="button-add">Adicionar</button>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="img-content">
-                <img src="https://i.imgur.com/Vng6VzV.png" class="img-card">
-            </div>
-            <div class="info-content">
-                <h3 class="name-product">Hamburger</h3>
-                <span class="category">Sanduiches</span>
-                <p class="price">R$ 14,00</p>
-                <button class="button-add">Adicionar</button>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="img-content">
-                <img src="https://i.imgur.com/Vng6VzV.png" class="img-card">
-            </div>
-            <div class="info-content">
-                <h3 class="name-product">Hamburger</h3>
-                <span class="category">Sanduiches</span>
-                <p class="price">R$ 14,00</p>
+                <h3 class="name-product">{{product.name}}</h3>
+                <span class="category">{{ product.category }}</span>
+                <p class="price">{{ product.price }}</p>
                 <button class="button-add">Adicionar</button>
             </div>
         </div>
@@ -126,6 +75,7 @@ export default {
     font-weight: 700;
     color: #333;
     line-height: 24px;
+    white-space: nowrap;
 }
 
 .category {
@@ -156,5 +106,6 @@ export default {
     height: 30px;
     justify-content: center;
     width: 106px;
+    cursor: pointer;
 }
 </style>
