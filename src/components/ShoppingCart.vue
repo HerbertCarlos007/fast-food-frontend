@@ -18,6 +18,10 @@ export default {
 
         removeProduct(item) {
             this.$store.commit('removeProduct', item.id)
+        },
+        
+        cleanCart() {
+            this.$store.commit('cleanCart')
         }
     },
 }
@@ -68,7 +72,7 @@ export default {
                     <span>R$ {{ $store.getters.total }}</span>
                 </div>
 
-                <button>Remover todos</button>
+                <button class="button-clean-cart" @click="cleanCart()">Remover todos</button>
             </div>
         </div>
     </div>
@@ -271,4 +275,5 @@ export default {
     width: 100%;
     cursor: pointer;
 }
+
 </style>

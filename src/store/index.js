@@ -19,6 +19,10 @@ export default createStore({
             const product = state.cart.findIndex(item => item.id === id)
             state.cart.splice(product, 1)
         },
+        
+        cleanCart(state) {
+            state.cart = []
+        }
     },
     
     getters: {
