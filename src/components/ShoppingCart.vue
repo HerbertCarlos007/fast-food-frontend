@@ -1,6 +1,8 @@
 <script>
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
+import { toast } from 'vue3-toastify'
+import 'vue3-toastify/dist/index.css';
 
 export default {
     name: 'ShoppingCart',
@@ -18,10 +20,16 @@ export default {
 
         removeProduct(item) {
             this.$store.commit('removeProduct', item.id)
+            toast.warn('Produto removido no carrinho!'), {
+                autoClose: 1000,
+            }
         },
 
         cleanCart() {
             this.$store.commit('cleanCart')
+            toast.warn('Todos produtos foram removidos com sucesso!'), {
+                autoClose: 1000,
+            }
         }
     },
 }
@@ -101,7 +109,7 @@ export default {
 
 .content-empty-car {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 10px;

@@ -1,5 +1,7 @@
 <script>
 import Products from '../Products'
+import { toast} from 'vue3-toastify'
+import 'vue3-toastify/dist/index.css';
 
 export default {
     name: 'ListProducts',
@@ -13,6 +15,11 @@ export default {
     methods: {
         addProduct(product) {
             this.$store.commit('addProduct', product)
+            toast.success('Produto adicionado no carrinho!'), {
+                autoClose: 1000,
+               
+            }
+            
         }
     },
     
