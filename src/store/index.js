@@ -21,7 +21,7 @@ export default createStore({
         },
         
         cleanCart(state) {
-            state.cart = []
+            state.cart =  []
         }
     },
     

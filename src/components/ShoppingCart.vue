@@ -19,7 +19,7 @@ export default {
         removeProduct(item) {
             this.$store.commit('removeProduct', item.id)
         },
-        
+
         cleanCart() {
             this.$store.commit('cleanCart')
         }
@@ -62,7 +62,11 @@ export default {
         </div>
 
         <div v-else class="emptyCart">
-            vazio
+            <div class="content-empty-car">
+                <h3>Carrinho vazio</h3>
+                <span class="fa-solid fa-shopping-cart" style="font-size: 30px;"></span>
+                <span class="add-itens-text">Adicione itens</span>
+            </div>
         </div>
 
         <div class="purchase-summary">
@@ -90,7 +94,25 @@ export default {
 
 .emptyCart {
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.content-empty-car {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-itens-text {
+    color: #333;
+    font-size: 12px;
+    font-weight: 400;
+}
+
 
 .title-content {
     height: 50px;
@@ -275,5 +297,4 @@ export default {
     width: 100%;
     cursor: pointer;
 }
-
 </style>
