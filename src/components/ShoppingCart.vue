@@ -27,7 +27,7 @@ export default {
 
         cleanCart() {
             this.$store.commit('cleanCart')
-            toast.warn('Todos produtos foram removidos com sucesso!'), {
+            toast.warn('Todos produtos foram removidos do carrinho!'), {
                 autoClose: 1000,
             }
         }
